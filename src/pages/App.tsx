@@ -15,7 +15,7 @@ class App extends Component {
     // console.log("env vars", process.env.REACT_APP_CONTEXT, process.env.REACT_APP_DEPLOY_URL, process.env.ENV)
     return (
       <div className="App">
-        <Router>
+        <Router basepath="/App">
           <Banner path="/subscribe/:subscriberId" type="subscribe" />
           <Banner path="/unsubscribe/:subscriberId" type="unsubscribe" />
         </Router>
