@@ -39,7 +39,7 @@ class Banner extends Component<Props> {
         },
         body: JSON.stringify({
           id: subscriberId,
-          context: process.env.REACT_APP_CONTEXT,
+          context: process.env.GATSBY_CONTEXT,
         }),
       }
     )

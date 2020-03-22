@@ -13,7 +13,7 @@ const baseClass = 'App';
 
 // eslint-disable-next-line react/prefer-stateless-function
 const App: React.FC = () => {
-  // console.log("env vars", process.env.REACT_APP_CONTEXT, process.env.REACT_APP_DEPLOY_URL, process.env.ENV)
+  // console.log("env vars", process.env.GATSBY_CONTEXT, process.env.GATSBY_DEPLOY_URL, process.env.ENV)
 
   const data = useStaticQuery(graphql`
     query MyQuery {

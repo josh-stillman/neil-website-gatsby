@@ -56,7 +56,7 @@ class SignupForm extends Component {
       },
       body: JSON.stringify({
         email: value,
-        context: process.env.REACT_APP_CONTEXT,
+        context: process.env.GATSBY_CONTEXT,
       }),
     })
       .then(res => {
