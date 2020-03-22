@@ -88,13 +88,15 @@ const App: React.FC = () => {
           fixed={data.logo.childImageSharp.fixed}
         />
       </a>
-      <hr
+
+      {/* <hr
         style={{
           borderTop: '1px solid grey',
           maxWidth: '75%',
           margin: '0 auto',
         }}
-      />
+      /> */}
+
       <div className={`${baseClass}__band-pics`}>
         <div className={`${baseClass}__band-pics-closeup--landscape`}>
           <Img fixed={data.mario.childImageSharp.fixed} alt="The Homie" />
@@ -112,21 +114,9 @@ const App: React.FC = () => {
           <Img fixed={data.mike.childImageSharp.fixed} alt="The Homie" />
         </div>
       </div>
-      <hr
-        style={{
-          borderTop: '1px solid grey',
-          maxWidth: '75%',
-          margin: '0 auto',
-        }}
-      />
+
       <SignupForm />
-      <hr
-        style={{
-          borderTop: '1px solid grey',
-          maxWidth: '75%',
-          margin: '0 auto',
-        }}
-      />
+
       <div className={`${baseClass}__links`}>
         <div className={`${baseClass}__link-item`}>
           <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
