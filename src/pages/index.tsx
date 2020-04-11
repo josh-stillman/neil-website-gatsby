@@ -17,7 +17,11 @@ const App: React.FC = (location: any) => {
     'env vars',
     process.env.GATSBY_CONTEXT,
     process.env.GATSBY_DEPLOY_URL,
-    process.env.ENV
+    process.env.ENV,
+    process.env.CONTEXT,
+    process.env.DEPLOY_URL,
+    process.env.NETLIFY,
+    process.env.GATSBY_NETLIFY
   );
 
   const data = useStaticQuery(graphql`
@@ -92,6 +96,7 @@ const App: React.FC = (location: any) => {
   console.log('props loc', location);
   console.log('sub', subscriberId);
   console.log('unSub', unsubscriberId);
+  console.log('env vars', process.env);
 
   const [isClient, setClient] = useState(false);
   const key = isClient ? 'client' : 'server';
