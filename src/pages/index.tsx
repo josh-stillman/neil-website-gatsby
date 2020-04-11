@@ -21,7 +21,8 @@ const App: React.FC = (location: any) => {
     process.env.CONTEXT,
     process.env.DEPLOY_URL,
     process.env.NETLIFY,
-    process.env.GATSBY_NETLIFY
+    process.env.GATSBY_NETLIFY,
+    process.env.GATSBY_TEST
   );
 
   const data = useStaticQuery(graphql`

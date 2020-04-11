@@ -1,3 +1,7 @@
+process.env.GATSBY_NETLIFY = process.env.NETLIFY;
+process.env.GATSBY_CONTEXT = process.env.CONTEXT;
+process.env.GATSBY_DEPLOY_URL = process.env.DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
