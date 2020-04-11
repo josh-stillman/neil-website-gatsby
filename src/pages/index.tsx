@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-no-target-blank */
-import React from 'react';
-import { Router } from '@reach/router';
+import React, { useState, useEffect } from 'react';
 import '../components/App.css';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import queryString from 'query-string';
 
 import SignupForm from '../components/SignupForm';
 import Banner from '../components/Banner';
@@ -12,8 +12,13 @@ import Banner from '../components/Banner';
 const baseClass = 'App';
 
 // eslint-disable-next-line react/prefer-stateless-function
-const App: React.FC = () => {
-  // console.log("env vars", process.env.GATSBY_CONTEXT, process.env.GATSBY_DEPLOY_URL, process.env.ENV)
+const App: React.FC = (location: any) => {
+  console.log(
+    'env vars',
+    process.env.GATSBY_CONTEXT,
+    process.env.GATSBY_DEPLOY_URL,
+    process.env.ENV
+  );
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -76,19 +81,45 @@ const App: React.FC = () => {
     }
   `);
 
+  // const res = queryString.parse(window.location.search);
+  // console.log('window', res);
+  const res2 = queryString.parse(location.location.search);
+  const {
+    unsubscribe: unsubscriberId,
+    subscribe: subscriberId,
+  } = queryString.parse(location.location.search);
+  console.log('props', res2);
+  console.log('props loc', location);
+  console.log('sub', subscriberId);
+  console.log('unSub', unsubscriberId);
+
+  const [isClient, setClient] = useState(false);
+  const key = isClient ? 'client' : 'server';
+
+  useEffect(() => {
+    setClient(true);
+  }, []);
+
   return (
     <div className="App">
-      <Router basepath="/">
-        <Banner path="/subscribe/:subscriberId" type="subscribe" />
-        <Banner path="/unsubscribe/:subscriberId" type="unsubscribe" />
-      </Router>
+      {/* <Router basepath="/"> */}
+      {isClient && subscriberId && (
+        <Banner key={key} path="/subscribe/:subscriberId" type="subscribe" />
+      )}
+      {isClient && unsubscriberId && (
+        <Banner
+          key={key}
+          path="/unsubscribe/:subscriberId"
+          type="unsubscribe"
+        />
+      )}
+      {/* </Router> */}
       <a href="https://www.instagram.com/electric.neil/" target="_blank">
         <Img
           className={`${baseClass}__logo`}
           fixed={data.logo.childImageSharp.fixed}
         />
       </a>
-
       {/* <hr
         style={{
           borderTop: '1px solid grey',
@@ -96,7 +127,6 @@ const App: React.FC = () => {
           margin: '0 auto',
         }}
       /> */}
-
       <div className={`${baseClass}__band-pics`}>
         <div className={`${baseClass}__band-pics-closeup--landscape`}>
           <Img fixed={data.mario.childImageSharp.fixed} alt="The Homie" />
@@ -114,9 +144,7 @@ const App: React.FC = () => {
           <Img fixed={data.mike.childImageSharp.fixed} alt="The Homie" />
         </div>
       </div>
-
       <SignupForm />
-
       <div className={`${baseClass}__links`}>
         <div className={`${baseClass}__link-item`}>
           <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
@@ -154,7 +182,6 @@ const App: React.FC = () => {
           </a>
         </div>
       </div>
-
       <div className={`${baseClass}__footer`}>
         <div className={`${baseClass}__footer-item`}>
           <span>
