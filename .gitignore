@@ -72,6 +72,7 @@ yarn-error.log
 
 # production
 /build
+/ts
 /lambda
 /.netlify
 

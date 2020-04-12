@@ -12,7 +12,7 @@ const generateJson = () => {
 
   fs.writeFileSync(path.join('public', 'images.json'), json);
   // eslint-disable-next-line no-console
-  console.log('wrote list of images to public dir');
+  console.log('wrote list of images to public dir', json);
 };
 
 generateJson();
