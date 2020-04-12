@@ -3,8 +3,8 @@ import * as path from 'path';
 
 const generateJson = () => {
   const pics = fs
-    .readdirSync(path.join('public/', 'static/'))
-    // .readdirSync(path.resolve('public/', 'static/'))
+    // .readdirSync(path.join('public/', 'static/'))
+    .readdirSync(path.resolve('public/', 'static/'))
     .filter((image: string) => /jpe?g/.test(image));
 
   const obj = { pics };
