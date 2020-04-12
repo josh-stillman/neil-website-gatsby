@@ -3,22 +3,8 @@ import * as path from 'path';
 
 const generateJson = () => {
   const pics = fs
-    // .readdirSync(path.join('public/', 'static/'))
-    .readdirSync(path.resolve('public/', 'static/'))
+    .readdirSync(path.join('public'))
     .filter((image: string) => /jpe?g/.test(image));
-
-  console.log('dir read resolve', path.resolve('public/', 'static/'));
-  console.log('dir read join', path.join('public/', 'static/'));
-  console.log(
-    'dir  join contents',
-    fs.readdirSync(path.resolve('public/', 'static/'))
-  );
-  console.log(
-    'dir join contents',
-    fs.readdirSync(path.join('public/', 'static/'))
-  );
-
-  console.log('top level contents', fs.readdirSync(path.join('public')));
 
   const obj = { pics };
 
