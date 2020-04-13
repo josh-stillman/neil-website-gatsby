@@ -41,13 +41,13 @@ export class Mailer {
         <p style="font-size: 14px;">Welcome to the <strong>ELECTRIC NEIL MAILING LIST EXPERIENCE!</strong>🎸</p>
         <br/>
         <br/>
-        <p style="font-size: 14px;"><a href="${this.baseUrl}/subscribe/${id}"><strong>Click here</strong></a> to confirm your subscription and get down with the Neil.</p>
+        <p style="font-size: 14px;"><a href="${this.baseUrl}/?subscribe=${id}"><strong>Click here</strong></a> to confirm your subscription and get down with the Neil.</p>
         <br/>
         <br/>
         <br/>
         <br/>
         <hr/>
-        <p><a href="${this.baseUrl}/unsubscribe/${id}">💩Unsubscribe💩</a></p>`,
+        <p><a href="${this.baseUrl}/?unsubscribe=${id}">💩Unsubscribe💩</a></p>`,
     };
 
     const res = await this.mailService.sendMail(message);

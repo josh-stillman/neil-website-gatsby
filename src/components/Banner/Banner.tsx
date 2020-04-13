@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { RouteComponentProps } from '@reach/router';
 import { StyledP, StyledLink, Wrapper } from './Banner.css';
 import LoadingSpinner from '../LoadingSpinner';
 
-interface Props extends RouteComponentProps {
+interface Props {
   message?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // match: any;
   subscriberId?: string;
   type: 'subscribe' | 'unsubscribe';
 }
@@ -23,9 +20,11 @@ class Banner extends Component<Props> {
   }
 
   handleAction = () => {
-    // const { match, type } = this.props;
-    // const { subscriber_id } = match.params;
     const { subscriberId, type } = this.props;
+
+    if (!subscriberId) {
+      return;
+    }
 
     fetch(
       `/.netlify/functions/${
@@ -65,6 +64,11 @@ class Banner extends Component<Props> {
 
   render() {
     const { message, loading } = this.state;
+    const { subscriberId } = this.props;
+
+    if (!subscriberId) {
+      return null;
+    }
 
     return (
       <Wrapper className={baseClass}>

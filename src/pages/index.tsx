@@ -13,17 +13,12 @@ const baseClass = 'App';
 
 // eslint-disable-next-line react/prefer-stateless-function
 const App: React.FC = (location: any) => {
-  console.log(
-    'env vars',
-    process.env.GATSBY_CONTEXT,
-    process.env.GATSBY_DEPLOY_URL,
-    process.env.ENV,
-    process.env.CONTEXT,
-    process.env.DEPLOY_URL,
-    process.env.NETLIFY,
-    process.env.GATSBY_NETLIFY,
-    process.env.GATSBY_TEST
-  );
+  // console.log(
+  //   'env vars',
+  //   process.env.GATSBY_CONTEXT,
+  //   process.env.GATSBY_DEPLOY_URL,
+  //   process.env.GATSBY_NETLIFY,
+  // );
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -86,18 +81,10 @@ const App: React.FC = (location: any) => {
     }
   `);
 
-  // const res = queryString.parse(window.location.search);
-  // console.log('window', res);
-  const res2 = queryString.parse(location.location.search);
   const {
     unsubscribe: unsubscriberId,
     subscribe: subscriberId,
   } = queryString.parse(location.location.search);
-  console.log('props', res2);
-  console.log('props loc', location);
-  console.log('sub', subscriberId);
-  console.log('unSub', unsubscriberId);
-  console.log('env vars', process.env);
 
   const [isClient, setClient] = useState(false);
   const key = isClient ? 'client' : 'server';
@@ -108,18 +95,20 @@ const App: React.FC = (location: any) => {
 
   return (
     <div className="App">
-      {/* <Router basepath="/"> */}
       {isClient && subscriberId && (
-        <Banner key={key} path="/subscribe/:subscriberId" type="subscribe" />
+        <Banner
+          key={key}
+          subscriberId={subscriberId as string}
+          type="subscribe"
+        />
       )}
       {isClient && unsubscriberId && (
         <Banner
           key={key}
-          path="/unsubscribe/:subscriberId"
+          subscriberId={subscriberId as string}
           type="unsubscribe"
         />
       )}
-      {/* </Router> */}
       <a href="https://www.instagram.com/electric.neil/" target="_blank">
         <Img
           className={`${baseClass}__logo`}
@@ -154,7 +143,7 @@ const App: React.FC = (location: any) => {
       <div className={`${baseClass}__links`}>
         <div className={`${baseClass}__link-item`}>
           <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
-            <Img fixed={data.fb.childImageSharp.fixed} alt="The Twitter" />
+            <Img fixed={data.fb.childImageSharp.fixed} alt="The Book" />
           </a>
         </div>
         {/*
