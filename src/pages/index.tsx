@@ -8,10 +8,13 @@ import queryString from 'query-string';
 
 import SignupForm from '../components/SignupForm';
 import Banner from '../components/Banner';
+import { InstaLogo } from '../components/icons/InstaLogo';
+import { TwitterLogo } from '../components/icons/TwitterLogo';
+import { FacebookLogo } from '../components/icons/FacebookLogo';
+import { EmailLogo } from '../components/icons/EmailLogo';
 
 const baseClass = 'App';
 
-// eslint-disable-next-line react/prefer-stateless-function
 const App: React.FC = (location: any) => {
   // console.log(
   //   'env vars',
@@ -139,29 +142,16 @@ const App: React.FC = (location: any) => {
           <Img fixed={data.mike.childImageSharp.fixed} alt="The Homie" />
         </div>
       </div>
-      <SignupForm />
-      <div className={`${baseClass}__links`}>
-        <div className={`${baseClass}__link-item`}>
-          <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
-            <Img fixed={data.fb.childImageSharp.fixed} alt="The Book" />
-          </a>
-        </div>
-        {/*
-        <div className={`${baseClass}__link-item`}>
-          <a href="https://twitter.com/electric_neils" target="_blank">
-            <Img fixed={data.twit.childImageSharp.fixed} alt="The Twitter" />
-          </a>
-        </div> */}
 
+      <SignupForm />
+
+      <div className={`${baseClass}__links`}>
         <div
           className={`${baseClass}__link-item, ${baseClass}__link-item--middle`}
         >
-          {/* <a href="https://soundcloud.com/electric_neil" target="_blank">
-              <img src="/sc.png" alt="Sound Cloud" height="64px" />
-            </a>        */}
           <iframe
             title="soundcloud"
-            style={{ maxWidth: '450px', minWidth: '300px' }}
+            // style={{ maxWidth: '450px', minWidth: '300px' }}
             width="100%"
             height="300"
             scrolling="no"
@@ -170,13 +160,34 @@ const App: React.FC = (location: any) => {
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/327074774&color=%23ff5500&auto_play=false&sharing=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false&buying=false&liking=false&download=false&show_comments=false&show_playcount=false&show_user=false"
           />
         </div>
+      </div>
+
+      <div className={`${baseClass}__links`}>
+        <div className={`${baseClass}__link-item`}>
+          <a href="https://instagram.com/electric.neil" target="_blank">
+            <InstaLogo />
+          </a>
+        </div>
+
+        <div className={`${baseClass}__link-item`}>
+          <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
+            <FacebookLogo />
+          </a>
+        </div>
+
+        <div className={`${baseClass}__link-item`}>
+          <a href="https://twitter.com/electric_neils" target="_blank">
+            <TwitterLogo />
+          </a>
+        </div>
 
         <div className={`${baseClass}__link-item`}>
           <a href="mailto:neil@electricneil.com">
-            <Img fixed={data.email.childImageSharp.fixed} alt="The Email" />
+            <EmailLogo />
           </a>
         </div>
       </div>
+
       <div className={`${baseClass}__footer`}>
         <div className={`${baseClass}__footer-item`}>
           <span>
