@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 375px;
 `;
 
 export const Header = styled.div<{ errorResponse?: boolean }>`
