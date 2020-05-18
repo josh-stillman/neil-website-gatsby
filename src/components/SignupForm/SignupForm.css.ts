@@ -38,6 +38,7 @@ export const StyledButton = styled.button`
   &:disabled {
     background-color: grey;
     cursor: default;
+    color: darkgrey;
   }
 
   &:hover:enabled {

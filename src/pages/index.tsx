@@ -12,6 +12,8 @@ import { InstaLogo } from '../components/icons/InstaLogo';
 import { TwitterLogo } from '../components/icons/TwitterLogo';
 import { FacebookLogo } from '../components/icons/FacebookLogo';
 import { EmailLogo } from '../components/icons/EmailLogo';
+import AudioPlayer from '../components/AudioPlayer';
+import { LightningIcon } from '../components/icons/LightningIcon';
 
 const baseClass = 'App';
 
@@ -98,113 +100,118 @@ const App: React.FC = (location: any) => {
 
   return (
     <div className="App">
-      {isClient && subscriberId && (
-        <Banner
-          key={key}
-          subscriberId={subscriberId as string}
-          type="subscribe"
-        />
-      )}
-      {isClient && unsubscriberId && (
-        <Banner
-          key={key}
-          subscriberId={subscriberId as string}
-          type="unsubscribe"
-        />
-      )}
-      <a href="https://www.instagram.com/electric.neil/" target="_blank">
-        <Img
-          className={`${baseClass}__logo`}
-          fixed={data.logo.childImageSharp.fixed}
-        />
-      </a>
-      {/* <hr
+      <div className="app-container">
+        {isClient && subscriberId && (
+          <Banner
+            key={key}
+            subscriberId={subscriberId as string}
+            type="subscribe"
+          />
+        )}
+        {isClient && unsubscriberId && (
+          <Banner
+            key={key}
+            subscriberId={subscriberId as string}
+            type="unsubscribe"
+          />
+        )}
+        <a href="https://www.instagram.com/electric.neil/" target="_blank">
+          <Img
+            className={`${baseClass}__logo`}
+            fixed={data.logo.childImageSharp.fixed}
+          />
+        </a>
+
+        <div className={`${baseClass}__band-pics`}>
+          <div className={`${baseClass}__band-pics-closeup--landscape`}>
+            <Img fixed={data.mario.childImageSharp.fixed} alt="The Homie" />
+          </div>
+
+          <div className={`${baseClass}__band-pics-closeup`}>
+            <Img fixed={data.josh.childImageSharp.fixed} alt="The Homie" />
+          </div>
+
+          <div className={`${baseClass}__band-pics-closeup`}>
+            <Img fixed={data.dan.childImageSharp.fixed} alt="The Homie" />
+          </div>
+
+          <div className={`${baseClass}__band-pics-closeup`}>
+            <Img fixed={data.mike.childImageSharp.fixed} alt="The Homie" />
+          </div>
+        </div>
+        {/* <hr
         style={{
           borderTop: '1px solid grey',
           maxWidth: '75%',
           margin: '0 auto',
         }}
       /> */}
-      <div className={`${baseClass}__band-pics`}>
-        <div className={`${baseClass}__band-pics-closeup--landscape`}>
-          <Img fixed={data.mario.childImageSharp.fixed} alt="The Homie" />
+
+        <div className={`${baseClass}__links--components`}>
+          <div className={`${baseClass}__links--component-item`}>
+            <AudioPlayer />
+          </div>
+
+          <div className={`${baseClass}__links--component-item`}>
+            <LightningIcon />
+          </div>
+
+          <div className={`${baseClass}__links--component-item`}>
+            <SignupForm />
+          </div>
         </div>
+        <hr
+          style={{
+            borderTop: '1px solid grey',
+            maxWidth: '75%',
+            margin: '0 auto',
+          }}
+        />
 
-        <div className={`${baseClass}__band-pics-closeup`}>
-          <Img fixed={data.josh.childImageSharp.fixed} alt="The Homie" />
-        </div>
-
-        <div className={`${baseClass}__band-pics-closeup`}>
-          <Img fixed={data.dan.childImageSharp.fixed} alt="The Homie" />
-        </div>
-
-        <div className={`${baseClass}__band-pics-closeup`}>
-          <Img fixed={data.mike.childImageSharp.fixed} alt="The Homie" />
-        </div>
-      </div>
-
-      <SignupForm />
-
-      <div className={`${baseClass}__links`}>
-        <div
-          className={`${baseClass}__link-item, ${baseClass}__link-item--middle`}
-        >
-          <iframe
-            title="soundcloud"
-            // style={{ maxWidth: '450px', minWidth: '300px' }}
-            width="100%"
-            height="300"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/327074774&color=%23ff5500&auto_play=false&sharing=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false&buying=false&liking=false&download=false&show_comments=false&show_playcount=false&show_user=false"
-          />
-        </div>
-      </div>
-
-      <div className={`${baseClass}__links`}>
-        <div className={`${baseClass}__link-item`}>
-          <a href="https://instagram.com/electric.neil" target="_blank">
-            <InstaLogo />
-          </a>
-        </div>
-
-        <div className={`${baseClass}__link-item`}>
-          <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
-            <FacebookLogo />
-          </a>
-        </div>
-
-        <div className={`${baseClass}__link-item`}>
-          <a href="https://twitter.com/electric_neils" target="_blank">
-            <TwitterLogo />
-          </a>
-        </div>
-
-        <div className={`${baseClass}__link-item`}>
-          <a href="mailto:neil@electricneil.com">
-            <EmailLogo />
-          </a>
-        </div>
-      </div>
-
-      <div className={`${baseClass}__footer`}>
-        <div className={`${baseClass}__footer-item`}>
-          <span>
-            Logo by{' '}
-            <a href="https://benjaminstillman.com/" target="_blank">
-              Benjamin&nbsp;Stillman
+        <div className={`${baseClass}__links`}>
+          <div className={`${baseClass}__link-item`}>
+            <a href="https://instagram.com/electric.neil" target="_blank">
+              <InstaLogo />
             </a>
-          </span>
+          </div>
+
+          <div className={`${baseClass}__link-item`}>
+            <a href="https://www.facebook.com/ElectricNeil/" target="_blank">
+              <FacebookLogo />
+            </a>
+          </div>
+
+          <div className={`${baseClass}__link-item`}>
+            <a href="https://twitter.com/electric_neils" target="_blank">
+              <TwitterLogo />
+            </a>
+          </div>
+
+          <div className={`${baseClass}__link-item`}>
+            <a href="mailto:neil@electricneil.com">
+              <EmailLogo />
+            </a>
+          </div>
         </div>
 
-        <div className={`${baseClass}__footer-item`}>
-          <span>
-            Photos by{' '}
-            <a href="http://topolino500.com/" target="_blank">
-              Bernard&nbsp;Bluhm
-            </a>
-          </span>
+        <div className={`${baseClass}__footer`}>
+          <div className={`${baseClass}__footer-item`}>
+            <span>
+              Logo by{' '}
+              <a href="https://benjaminstillman.com/" target="_blank">
+                Benjamin&nbsp;Stillman
+              </a>
+            </span>
+          </div>
+
+          <div className={`${baseClass}__footer-item`}>
+            <span>
+              Photos by{' '}
+              <a href="http://topolino500.com/" target="_blank">
+                Bernard&nbsp;Bluhm
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
