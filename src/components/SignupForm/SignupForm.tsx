@@ -31,9 +31,9 @@ class SignupForm extends Component {
   validateEmail = (input: string) => emailRegex.test(this.state.value);
 
   onBlur = () => {
-    const { error } = this.state;
+    const { error, value } = this.state;
 
-    if (error) {
+    if (error && value) {
       this.setState({ showError: true });
     }
   };
