@@ -16,7 +16,7 @@ const Header = styled.div`
 `;
 
 const SONGS = [
-  'Electric Neil Theme Song (live 2019).mp3',
+  'Electric Neil - Neil Theme (live 2019).mp3',
   'Electric Neil - Dream Zone (live 2019).mp3',
   "Electric Neil - Can't Hardly Wait (live cover 2019).mp3",
   'Electric Neil - Low (live cover 2019).mp3',
