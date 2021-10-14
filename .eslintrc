@@ -6,8 +6,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier/@typescript-eslint",
-    "prettier/react",
+    "prettier",
     "plugin:prettier/recommended" // must be last in extends array
   ],
   "env": {
@@ -45,6 +44,16 @@
   "react/state-in-constructor":"off",
   "import/prefer-default-export":"off",
   "import/extensions":"off",
-  "@typescript-eslint/require-await":"off"
+  "@typescript-eslint/require-await":"off",
+  "no-use-before-define": "off",
+  "@typescript-eslint/no-use-before-define": ["error"],
+  "@typescript-eslint/explicit-module-boundary-types": "off",
+  "@typescript-eslint/no-unsafe-assignment": "warn",
+  "@typescript-eslint/no-unsafe-member-access": "warn",
+  "@typescript-eslint/no-unsafe-call": "warn",
+  "@typescript-eslint/no-unsafe-return": "warn",
+  "@typescript-eslint/restrict-template-expressions": "off",
+  "@typescript-eslint/no-floating-promises": "off",
+  "react/destructuring-assignment": "off"
   }
 }

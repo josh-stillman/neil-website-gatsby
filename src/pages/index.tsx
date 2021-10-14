@@ -86,10 +86,8 @@ const App: React.FC = (location: any) => {
     }
   `);
 
-  const {
-    unsubscribe: unsubscriberId,
-    subscribe: subscriberId,
-  } = queryString.parse(location.location.search);
+  const { unsubscribe: unsubscriberId, subscribe: subscriberId } =
+    queryString.parse(location.location.search);
 
   const [isClient, setClient] = useState(false);
   const key = isClient ? 'client' : 'server';
@@ -198,7 +196,7 @@ const App: React.FC = (location: any) => {
           <div className={`${baseClass}__footer-item`}>
             <span>
               Logo by{' '}
-              <a href="https://benjaminstillman.com/" target="_blank">
+              <a href="https://linktr.ee/BENIStillman" target="_blank">
                 Benjamin&nbsp;Stillman
               </a>
             </span>
